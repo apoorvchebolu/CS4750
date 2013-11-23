@@ -85,13 +85,13 @@ $(document).ready(function(){
     });
   
     $("#loginbutton").click(function(){
-	    
+	    //alert ("test");
     $.ajax({
 	    type: 'POST',
 	    url: 'login.php', 
 	    data: {user_id: $('#user_id').val(), password: $('#password').val()},
 	    success: function(data){
-			if (data==="home.html") {
+			if (data==="home.html"|| data==="teacherhome.html") {
 				    window.location.replace(data);
 			} else {
 			     $('#loginError').html(data);

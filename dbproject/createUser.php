@@ -35,7 +35,7 @@ session_start();
                          VALUES ('$username','$type','$lastName' ,'$firstName','$email')");
    
    
-   $password= hash('md5', '$password');
+   $password= hash('md5', $password);
     
     $passwordUser= mysqli_query($db_connection,"INSERT INTO `cs4750apc5fr`.`login` (`user_id`, `password`) VALUES ('$username', '$password')");
     
