@@ -75,6 +75,9 @@ $(document).ready(function(){
 	    success: function(data){
 			if (data==="home.html" || data==="teacherhome.html") {
 				    window.location.replace(data);
+				    var sessionValue = '<%=Session["user_id"]%>'
+				    $('#loggedInUserID').html(sessionValue+"HI");
+				    alert("sessionuser_id: "+sessionValue);
 			} else {
 			     $('#loginError').html(data);
 			}
