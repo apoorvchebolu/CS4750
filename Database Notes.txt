@@ -13,6 +13,3 @@ Varun - Ask Questions
 
 Login:
 Joseph - "Test the login more so we don't randomly do it" --Joseph Demarchi, circa 2013
-
-
-
