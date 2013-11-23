@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>TA Hours</title>
+   
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap-theme.min.css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>    
+    <script type="text/javascript" src="script.js"></script>
+</head>
+
+<body style="background-color: #e6e6e6">
+<div id="content" style="width:1000px; margin-left: auto; height: 500px; margin-right: auto; background-color: #fff; padding: 20px">
+    
+    <div id="header" style="height: 50px; width: 1000px"><h1>TA Office Hours</h1>
+    </div>
+    
+    <div id="leftpane" style="width:350px; float: left; padding: 10px; background-color: #fff">
+        <div class="panel-group" id="accordion">
+           
+        <!-- ----------------------------------------------------------------------------------------------d -->
+
+           
+            <div class="panel panel-success">
+              <div class="panel-heading">
+                <h4 class="panel-title">
+                  <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                    <span class="glyphicon glyphicon-log-out"></span> &nbsp Logout
+                  </a>
+                </h4>
+              </div>
+              <div id="collapseOne" class="panel-collapse collapse in">
+                <div class="panel-body">
+                    <p>Logged in as: </p>
+                    <p>Name</p>
+                    <a style="float: right" type="submit" class="btn btn-warning" href="index.html">Logout</a>
+                       
+                    
+                </div>
+              </div>
+            </div>
+            
+            <!-- ----------------------------------------------------------------------------------------------d -->
+            
+            <div class="panel panel-success">
+              <div class="panel-heading">
+                <h4 class="panel-title">
+                  <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                    <span class="glyphicon glyphicon-search"></span> &nbsp Search for Classes 
+                  </a>
+                </h4>
+              </div>
+              <div id="collapseTwo" class="panel-collapse collapse">
+                <div class="panel-body">
+                    
+                          <input id="search" type="text" class="form-control" placeholder="Search for Courses">
+                          
+                      </div><!-- /.col-lg-6 -->
+                      <div id="results"></div>
+               
+              </div>
+            </div>
+            
+            <!-- ----------------------------------------------------------------------------------------------d -->
+
+            <div class="panel panel-success">
+              <!--<div class="panel-heading">-->
+              <!--  <h4 class="panel-title">-->
+                  <!--<a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">-->
+                  
+                  <!--</a>-->
+              <!--  </h4>-->
+              <!--</div>-->
+              <button id="myClasses" style="width: 100%" class="btn btn-warning btn-lg">
+                    <span class="glyphicon glyphicon-book"></span> &nbsp My Classes
+                  </button>
+              <div id="collapseThree" class="panel-collapse collapse">
+                <div class="panel-body">
+                    Login to view saved classes
+                </div>
+              </div>
+            </div>
+        
+        <div class="panel panel-success">
+              <button id="questionModal" style="width: 100%"  class="btn btn-warning btn-lg" data-toggle="modal" data-target="#myModal">
+                        <span class="glyphicon glyphicon-question-sign"></span> &nbsp Ask a Question
+                      </button>
+              <!-- Modal -->
+                      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                              <h4 class="modal-title" id="myModalLabel">Ask a Question</h4>
+                            </div>
+                                <div class="modal-body">
+                                <div id="questionSelects"></div>
+                                  <div id="questionSession"></div>
+                                  <input type="text" class="form-control" id="questionSubject" name="questionSubject" placeholder="Subject"><br>
+                                  <textarea type="text" class="form-control" id="questionBody" name="questionBody" placeholder="Type Question Here" style="height: 300px"></textarea>
+                                </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                              <button id="questionButton" type="submit" class="btn btn-warning" data-dismiss="modal">Ask</button>
+                            </div>
+                          </div><!-- /.modal-content -->
+                        </div><!-- /.modal-dialog -->
+                      </div><!-- /.modal -->
+            </div>
+          </div>
+    </div>
+    
+    
+    
+    <div id="rightpane" style="width:40%; float: left;padding: 10px; background-color: #fff">
+       <div id="myhours">
+        <table class="table table-bordered table-striped" style="width:600px">
+        <th>Class Name</th>
+        <th>TA Names</th>
+        <th>Day</th>
+        <th>Time</th>
+        <th>Location</th>
+        
+        <tr>
+            <td>CS 4750</td>
+            <td>Donald Draper</td>
+            <td>MW</td>
+            <td>2-3pm</td>
+            <td>Thorton Stacks</td>            
+        </tr>
+        
+        <tr>
+            <td>CS 4720</td>
+            <td>Marshall Mathers</td>
+            <td>TR</td>
+            <td>4-6pm</td>
+            <td>Davis Commons</td>            
+        </tr>
+        
+        <tr>
+            <td>CS 4790</td>
+            <td>Aaron Bloomfield</td>
+            <td>F</td>
+            <td>1-3pm</td>
+            <td>Rice 404</td>            
+        </tr>
+        
+       </table>
+       </div>
+    </div>
+</div>                            
+                        
+
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>officeHours</title>
+   
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap-theme.min.css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>    
+    <script type="text/javascript" src="script.js"></script>
+</head>
+
+<body style="background-color: #e6e6e6">
+<div id="content" style="width:1000px; margin-left: auto; height: 600px; margin-right: auto; background-color: #fff; padding: 20px">
+   <h1><strong>officeHours</strong></h1><br>
+
+    <div class="well" style="width: 700px; margin-left: auto; margin-right: auto">
+        <h3>Add New Class:</h3>
+        <form class="form-horizontal" role="form">
+          
+          <div class="form-group">
+            <label class="col-sm-3 control-label">Department Name</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="inputDepartmentname" placeholder="Department Name">
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label class="col-sm-3 control-label">Department ID</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="inputDepartmentid" placeholder="Department ID">
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label class="col-sm-3 control-label">Course Number</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="inputCoursenumber" placeholder="Course Number">
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label class="col-sm-3 control-label">Class Name</label>
+            <div class="col-sm-9">
+              <input type="email" class="form-control" id="inputClassname" placeholder="Class Name">
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label class="col-sm-3 control-label">Professor ID</label>
+            <div class="col-sm-9">
+              <input type="email" class="form-control" id="inputProfesorid" placeholder="Professor ID">
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label class="col-sm-3 control-label">Semester</label>
+            <div class="col-sm-9">
+                <table>
+                <tr>
+                <td>
+                    <select  class="form-control">
+                      <option>Term</option>
+                      <option>Fall</option>
+                      <option>Spring</option>
+                    </select>
+                </td>
+                <td>
+                    <select class="form-control">
+                      <option>Year</option>
+                      <option>2013</option>
+                      <option>2014</option>
+                    </select>
+                </td>
+                </tr>
+                </table>
+            </div>
+          </div>  
+         
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <button type="submit" class="btn btn-info">Add Class</button>
+              <a type="submit" class="btn btn-default" href="home">Cancel</a>
+            </div>
+          </div>
+        
+        </form>
+    </div>
+
+
+</div>
+</body>
+</html>
