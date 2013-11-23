@@ -1,6 +1,18 @@
-Ask Questions
-View Questions
-Create Locations
-ADD hosted while making/creating Session
-Modify My Classes for attends
-Add delete Session Button
+Teacher:
+Joey - View Questions
+Joey - Create Locations
+Apoorv - MyClasses
+Apoorv - Add delete Session Button to myClasses
+Varun - remove delete session tab
+Varun - ADD hostedAt while making/creating Session
+
+Student:
+Apoorv - Modify My Classes for attends
+Varun - Ask Questions
+
+
+Login:
+Joseph - "Test the login more so we don't randomly do it" --Joseph Demarchi, circa 2013
+
+
+
