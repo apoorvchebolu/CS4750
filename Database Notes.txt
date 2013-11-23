@@ -12,11 +12,4 @@ Varun - Ask Questions
 
 
 Login:
-<<<<<<< HEAD
 ///Joseph - "Test the login more so we don't randomly do it" --Joseph Demarchi, circa 2013
-
-
-
-=======
-Joseph - "Test the login more so we don't randomly do it" --Joseph Demarchi, circa 2013
->>>>>>> 83127a97d36b0fe1246d188ce860a8966122ad6e
