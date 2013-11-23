@@ -33,7 +33,6 @@ while($row = mysqli_fetch_array($result))
 	}
 	else{
 		echo "home.html";
-		header('Location: home.html');
 		$_SESSION['user_id'] = $username;
 		$_SESSION['password'] = $row['password'];
 		//header('Location: home.html');
