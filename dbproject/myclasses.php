@@ -1,6 +1,6 @@
 <?php
     include_once('dblogin.php');
-	
+	session_start();
 	$db_connection = new mysqli($SERVER, $USER, $PASS, $DB);
 	if (mysqli_connect_error()) {
 		echo "Can't connect!";
@@ -8,8 +8,8 @@
 		return null;
 	}
         
-    //$user_id=$_SESSION['user_id'];
-    $user_id='apc5fr';
+    $user_id=$_SESSION['user_id'];
+    //$user_id='apc5fr';
 
     //echo "user: $user_id<br>";
     $viewQuery = "CREATE OR REPLACE VIEW myClassView AS SELECT user_id, classes.class_id, department_name, department_id,
