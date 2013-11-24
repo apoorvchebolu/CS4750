@@ -11,6 +11,22 @@
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>    
     <script type="text/javascript" src="script.js"></script>
     <script type="text/javascript" src="jquery.timepicker.js"></script>
+    <script type="text/javascript">
+        $.ajax({
+	    url: 'myuser.php', 
+	    data: {},
+	    success: function(data){
+	    //$('#myhours').html(data);
+            $userArray = data.split(",");
+            
+	    $("#loggedInUserID").html($userArray[0]);
+            $("#loggedInUserName").html($userArray[1]);
+	    },
+	    error: function(data){
+	      alert("error");
+	    }
+        }); 
+    </script>
 </head>
 
 <body style="background-color: #e6e6e6">
@@ -37,8 +53,8 @@
               </div>
               <div id="collapseOne" class="panel-collapse collapse in">
                 <div class="panel-body">
-                    <p>Logged in as: </p>
-                    <p>Name</p>
+                    <strong>Logged in as: </strong><div id="loggedInUserID"></div>
+                    <strong>Name</strong><div id="loggedInUserName"></div>
                     <a style="float: right" type="submit" class="btn btn-warning" href="index.html">Logout</a>
                        
                     

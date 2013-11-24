@@ -52,7 +52,7 @@
 		//header('Location: home.html');
 	}
     
-
+	//echo ",$username";
   }
   
   

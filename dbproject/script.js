@@ -1,13 +1,4 @@
 $(document).ready(function(){
-
-/*$.ajax({
-	    url: 'myhours.php', 
-	    data: {},
-	    success: function(data){
-	    $('#myhours').html(data);	
-	    }
-    }); */
-
     
   $("#addSessionButton").click(function(){
     $.ajax({
@@ -75,12 +66,27 @@ $(document).ready(function(){
 	    success: function(data){
 			if (data==="home.html" || data==="teacherhome.html") {
 				    window.location.replace(data);
-				    var sessionValue = '<%=Session["user_id"]%>'
-				    $('#loggedInUserID').html(sessionValue+"HI");
-				    alert("sessionuser_id: "+sessionValue);
 			} else {
 			     $('#loginError').html(data);
 			}
+			
+			//if (data.charAt(0)=="<") {
+			//  $('#loginError').html(data);
+			//} else{
+			//  var array = data.split(",");
+			//  window.location.assign(array[0]);
+			//  alert(array[1]);
+			//  
+			//  $(window).on( "load",function(){
+			//      alert("loaded");
+			//  });
+			//  
+			//  //$(document).on(null, null, array[1], function(){
+			//  //  alert("hi");
+			//  //  $("#loggedInUserID").html(array[1]);
+			//  //});
+			//  
+			//}
 			
 	    }
     });

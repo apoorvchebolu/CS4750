@@ -1,12 +1,12 @@
 <?php
     include_once('dblogin.php');
-	session_start();
-	$db_connection = new mysqli($SERVER, $USER, $PASS, $DB);
-	if (mysqli_connect_error()) {
-		echo "Can't connect!";
-		echo "<br>" . mysqli_connect_error();
-		return null;
-	}
+    session_start();
+    $db_connection = new mysqli($SERVER, $USER, $PASS, $DB);
+    if (mysqli_connect_error()) {
+	    echo "Can't connect!";
+	    echo "<br>" . mysqli_connect_error();
+	    return null;
+    }
         
     $user_id=$_SESSION['user_id'];
     //$user_id='apc5fr';
