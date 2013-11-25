@@ -16,9 +16,9 @@
     $result = mysqli_query($db_connection,$query);
     
     if($result){
-    echo "Successfully added to myClasses!";
+    echo "success";
      } else{
-        echo "Something went wrong!";
+        echo "error";
     }
     
     $db_connection->close();

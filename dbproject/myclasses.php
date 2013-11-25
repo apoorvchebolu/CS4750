@@ -50,30 +50,33 @@
       {
 	
       echo "<strong>" . $row['department_id'] . " " . $row['course_number'] . ": " . $row['class_name'] . "</strong><br><br>";
-	echo "<table class='table table-bordered table-striped'>";
-	echo "<th>Professor ID</th>";
-	echo "<th>Class ID</th>";
-	echo "<th>Session ID</th>";
-	echo "<th>Start Time</th>";
-	echo "<th>End Time</th>";
-	echo "<th>Date</th>";
-	echo "<th></th>";
+	
 	
 	$count=0;
 	while($row2 = mysqli_fetch_array($sessionResult))
 	  {
 	    if($row['class_id']==$row2['class_id']){
+		if($count==0){
+		    echo "<table class='table table-bordered table-striped'>";
+		    echo "<th>Professor ID</th>";
+		    //echo "<th>Class ID</th>";
+		    //echo "<th>Session ID</th>";
+		    echo "<th>Start Time</th>";
+		    echo "<th>End Time</th>";
+		    echo "<th>Days of the Week</th>";
+		    echo "<th></th>";
+		}
 		echo "<tr>";
 		//session_id, start_time, end_time, date
 		echo "<td>";
 		echo  $row2['user_id'];
 		echo "</td>";
-		echo "<td>";
-		echo  $row2['class_id'];
-		echo "</td>";
-		echo "<td>";
-		echo  $row2['session_id'];
-		echo "</td>";
+		//echo "<td>";
+		//echo  $row2['class_id'];
+		//echo "</td>";
+		//echo "<td>";
+		//echo  $row2['session_id'];
+		//echo "</td>";
 		echo "<td>";
 		echo  $row2['start_time'];
 		echo "</td>";
@@ -98,23 +101,8 @@
 	    }
 	  }
 	  if($count==0){
-	    echo "<tr>";
-	    echo "<td>";
-	    echo  "No Sessions have been created yet!";
-	    echo "</td>";
-	    echo "<td>";
-	    echo "</td>";
-	    echo "<td>";
-	    echo "</td>";
-	    echo "<td>";
-	    echo "</td>";
-	    echo "<td>";
-	    echo "</td>";
-	    echo "<td>";
-	    echo "</td>";
-	    echo "<td>";
-	    echo "</td>";
-	    echo "</tr>";
+	    echo  "<em>No Sessions have been created yet!</em>";
+	    echo "<br><br>";
 	  }
 	  mysqli_data_seek($sessionResult,0);
 	  echo "</table>";

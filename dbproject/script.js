@@ -148,14 +148,20 @@ $(document).ready(function(){
     
     //Apoorv's Methods------------------------------------------------------------
     
-    $(document).on("click", ".addClass", function(){
+    $(document).on("click", ".addClass", function(e){
 	   
 	   //alert('Value: '+class_id);
 	   $.ajax({
 		    url: 'addClass.php', 
 		    data: {classID: class_id},
 		    success: function(data){
-			    alert(data);
+			    if (data=="success") {
+			      $(e.target).html("Added!");
+			      $(e.target).attr('class', 'btn btn-success addClass');
+			    } else{
+			      $(e.target).html("Error!");
+			      $(e.target).attr('class', 'btn btn-danger addClass');
+			    }
 		    },
 		    error: function(data){
 			//alert("error")
@@ -174,6 +180,9 @@ $(document).ready(function(){
 			    if (data=="success") {
 			      $(e.target).html("Attending!");
 			      $(e.target).attr('class', 'btn btn-success joinSession');
+			    } else{
+			      $(e.target).html("Error!");
+			      $(e.target).attr('class', 'btn btn-danger joinSession');
 			    }
 			    
 			   //this.html("You've Joined this session!");
