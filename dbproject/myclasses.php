@@ -26,6 +26,14 @@
     
     mysqli_query($db_connection,$sessionQuery);
     $sessionResult = mysqli_query($db_connection,"Select * FROM mySessions");
+    
+    echo "<script>
+		var session_id;
+		function getAddSessionID(id) {
+                        session_id = id;
+		}
+		
+	  </script>";
 
     
     echo "<div style='padding: 15px'>";
@@ -38,70 +46,80 @@
 //        echo "<th>Course Name</th>";
 //        echo "<th>Semester</th>";
 	
-	while($row = mysqli_fetch_array($result))
+    while($row = mysqli_fetch_array($result))
+      {
+	
+      echo "<strong>" . $row['department_id'] . " " . $row['course_number'] . ": " . $row['class_name'] . "</strong><br><br>";
+	echo "<table class='table table-bordered table-striped'>";
+	echo "<th>Professor ID</th>";
+	echo "<th>Class ID</th>";
+	echo "<th>Session ID</th>";
+	echo "<th>Start Time</th>";
+	echo "<th>End Time</th>";
+	echo "<th>Date</th>";
+	echo "<th></th>";
+	
+	$count=0;
+	while($row2 = mysqli_fetch_array($sessionResult))
 	  {
-	    
-	  echo $row['department_id'] . " " . $row['course_number'] . ": " . $row['class_name'] . "<br>";
-	    echo "<table class='table table-bordered table-striped'>";
-	    echo "<th>Professor ID</th>";
-	    echo "<th>Class ID</th>";
-	    echo "<th>Session ID</th>";
-	    echo "<th>Start Time</th>";
-	    echo "<th>End Time</th>";
-	    echo "<th>Date</th>";
-	    
-	    $count=0;
-	    while($row2 = mysqli_fetch_array($sessionResult))
-	      {
-		if($row['class_id']==$row2['class_id']){
-		    echo "<tr>";
-		    //session_id, start_time, end_time, date
-		    echo "<td>";
-		    echo  $row2['user_id'];
-		    echo "</td>";
-		    echo "<td>";
-		    echo  $row2['class_id'];
-		    echo "</td>";
-		    echo "<td>";
-		    echo  $row2['session_id'];
-		    echo "</td>";
-		    
-		    
-		    echo "<td>";
-		    echo  $row2['start_time'];
-		    echo "</td>";
-		    echo "<td>";
-		    echo  $row2['end_time'];
-		    echo "</td>";
-		    echo "<td>";
-		    echo  $row2['date'];
-		    echo "</td>";
-		    
-		    echo "</tr>";
-		    $count++;
-		}
-	      }
-	      if($count==0){
+	    if($row['class_id']==$row2['class_id']){
 		echo "<tr>";
+		//session_id, start_time, end_time, date
 		echo "<td>";
-		echo  "No Sessions have been created yet!";
+		echo  $row2['user_id'];
 		echo "</td>";
 		echo "<td>";
+		echo  $row2['class_id'];
 		echo "</td>";
 		echo "<td>";
+		echo  $row2['session_id'];
 		echo "</td>";
 		echo "<td>";
+		echo  $row2['start_time'];
 		echo "</td>";
 		echo "<td>";
+		echo  $row2['end_time'];
 		echo "</td>";
 		echo "<td>";
+		echo  $row2['date'];
 		echo "</td>";
+		
+		$joinedQuery = "SELECT * FROM attends WHERE user_id='$user_id' AND session_id=" . $row2['session_id'];
+		$joinedQueryResult = mysqli_query($db_connection, $joinedQuery);
+		$numJoinRows = mysqli_num_rows($joinedQueryResult);
+		if(!$numJoinRows){
+		    //echo "<td><a href='joinSession.php?sessionID=" . $row2['session_id'] . "' type='input' id='" . $row2['session_id'] . "' onClick= 'getAddSessionID(this.id)' class='btn btn-info joinSession' >Join Session!</a></td>";
+		    echo "<td><button type='input' id='" . $row2['session_id'] . "' onClick= 'getAddSessionID(this.id)' class='btn btn-info joinSession' >Join Session!</button></td>";
+		} else{
+		    echo "<td><button type='input' id='" . $row2['session_id'] . "' onClick= 'getAddSessionID(this.id)' class='btn btn-success joinSession' >Attending!</button></td>";
+		}
 		echo "</tr>";
-	      }
-	      mysqli_data_seek($sessionResult,0);
-	      echo "</table>";
-	  
-	  
+		$count++;
+	    }
+	  }
+	  if($count==0){
+	    echo "<tr>";
+	    echo "<td>";
+	    echo  "No Sessions have been created yet!";
+	    echo "</td>";
+	    echo "<td>";
+	    echo "</td>";
+	    echo "<td>";
+	    echo "</td>";
+	    echo "<td>";
+	    echo "</td>";
+	    echo "<td>";
+	    echo "</td>";
+	    echo "<td>";
+	    echo "</td>";
+	    echo "<td>";
+	    echo "</td>";
+	    echo "</tr>";
+	  }
+	  mysqli_data_seek($sessionResult,0);
+	  echo "</table>";
+      
+      
 //	  echo "<tr>";
 //	  echo "<td>";
 //	  echo  $row['user_id'];
@@ -124,11 +142,11 @@
 //          echo "<td>";
 //	  echo  $row['semester'];
 //	  echo "</td>";
-          
-	  //echo "<td><button id='addClassID' class='btn btn-info addClass'>Add</button></td>";
-	  //echo"<script> alert('". $row['name_first'] . "')</script>";
-	  //echo "</tr>";
-	  }
+      
+      //echo "<td><button id='addClassID' class='btn btn-info addClass'>Add</button></td>";
+      //echo"<script> alert('". $row['name_first'] . "')</script>";
+      //echo "</tr>";
+      }
 	//echo "</table>";
 	
 	

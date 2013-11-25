@@ -152,26 +152,47 @@ $(document).ready(function(){
 	   
 	   //alert('Value: '+class_id);
 	   $.ajax({
-			       url: 'addClass.php', 
-			       data: {classID: class_id},
-			       success: function(data){
-				       alert(data);
-			       },
-			       error: function(data){
-				   //alert("error")
-			       }
-		       });
+		    url: 'addClass.php', 
+		    data: {classID: class_id},
+		    success: function(data){
+			    alert(data);
+		    },
+		    error: function(data){
+			//alert("error")
+		    }
+	    });
 	   
- });
+    });
+    
+    $(document).on("click", ".joinSession", function(e){
+	  
+	  //alert('Value: '+session_id);
+	  $.ajax({
+		   url: 'joinSession.php', 
+		   data: {sessionID: session_id},
+		   success: function(data){
+			    if (data=="success") {
+			      $(e.target).html("Attending!");
+			      $(e.target).attr('class', 'btn btn-success joinSession');
+			    }
+			    
+			   //this.html("You've Joined this session!");
+		   },
+		   error: function(data){
+		       //alert("error")
+		   }
+	   });
+	  
+    });
     
      $("#myClasses").click(function(){
             
             $.ajax({
-			       url: 'myclasses.php', 
-			       success: function(data){
-				       $('#myhours').html(data);        
-			       }
-		       });
+		    url: 'myclasses.php', 
+		    success: function(data){
+			    $('#myhours').html(data);        
+		    }
+	    });
      });
      
      //---------------------------------------------------------------------------------
