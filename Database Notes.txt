@@ -1,13 +1,13 @@
 Teacher:
 Joey - View Questions
 Joey - Create Locations
-Apoorv - MyClasses
-Apoorv - Add delete Session Button to myClasses
+//Apoorv - MyClasses
+//Apoorv - Add delete Session Button to myClasses
 Varun - remove delete session tab
 Varun - ADD hostedAt while making/creating Session
 
 Student:
-Apoorv - Modify My Classes for attends
+//Apoorv - Modify My Classes for attends
 Varun - Ask Questions
 
 
