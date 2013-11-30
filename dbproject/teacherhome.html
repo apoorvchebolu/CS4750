@@ -35,7 +35,7 @@
     <div id="header" style="height: 50px; width: 1000px"><h1>TA Office Hours</h1>
     </div>
     
-    <div id="leftpane" style="width:350px; float: left; padding: 10px; background-color: #fff">
+    <div id="leftpane" style="width:30%; float: left; padding: 10px; background-color: #fff">
         <div class="panel-group" id="accordion">
    
    
@@ -97,18 +97,9 @@
 
             
             <div class="panel panel-success">
-              <div class="panel-heading">
-                <h4 class="panel-title">
-                  <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+                <button id="myClasses" style="width: 100%" class="btn btn-warning btn-lg">
                     <span class="glyphicon glyphicon-book"></span> &nbsp My Classes
-                  </a>
-                </h4>
-              </div>
-              <div id="collapseThree" class="panel-collapse collapse">
-                <div class="panel-body">
-                    Login to view saved classes
-                </div>
-              </div>
+                </button>
             </div>
             
     <!-- My Classes End----------------------------------------------------------------------------------------------d -->
@@ -119,21 +110,10 @@
 
             
             <div class="panel panel-success">
-              <div class="panel-heading">
-                <h4 class="panel-title">
-                  <a data-toggle="collapse" data-parent="#accordion" href="#collapseQuestions">
-                    <span class="glyphicon glyphicon-question-sign"></span> &nbsp View Questions 
-                  </a>
-                </h4>
-              </div>
-              <div id="collapseQuestions" class="panel-collapse collapse">
-                <div class="panel-body">
-                    
-                    <button class="btn btn-warning btn-lg" data-toggle="modal" data-target="#addLocation" style="width: 100%">
+                <button class="btn btn-warning btn-lg" data-toggle="modal" data-target="#addLocation" style="width: 100%">
                         <span class="glyphicon glyphicon-question-sign"></span> &nbsp View Student Questions
                       </button>
-                    
-                    <!-- Modal -->
+                 <!-- Modal -->
                       <div class="modal fade" id="addLocation" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
                           <div class="modal-content">
@@ -153,9 +133,6 @@
                           </div><!-- /.modal-content -->
                         </div><!-- /.modal-dialog -->
                       </div><!-- /.modal -->
-                
-                </div><!-- /.col-lg-6 -->
-              </div>
             
             
     <!-- View Questions End----------------------------------------------------------------------------------------------d -->
@@ -166,17 +143,7 @@
     <!-- Add Classes Start----------------------------------------------------------------------------------------------d -->
 
             <div class="panel panel-success">
-              <div class="panel-heading">
-                <h4 class="panel-title">
-                  <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
-                    <span class="glyphicon glyphicon-plus"></span> &nbsp Add Classes
-                  </a>
-                </h4>
-              </div>
-              <div id="collapseFour" class="panel-collapse collapse">
-                <div class="panel-body">
-                    
-                    <button class="btn btn-warning btn-lg" data-toggle="modal" data-target="#myModal" style="width: 100%">
+                <button class="btn btn-warning btn-lg" data-toggle="modal" data-target="#myModal" style="width: 100%">
                         <span class="glyphicon glyphicon-plus"></span> &nbsp Add Class
                       </button>
                       
@@ -262,9 +229,7 @@
                           </div><!-- /.modal-content -->
                         </div><!-- /.modal-dialog -->
                       </div><!-- /.modal -->
-                    
-                </div>
-              </div>
+                
             </div>
             
     <!-- Add Classes End----------------------------------------------------------------------------------------------d -->
@@ -277,18 +242,8 @@
 
             
             <div class="panel panel-success">
-              <div class="panel-heading">
-                <h4 class="panel-title">
-                  <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive">
-                    <span class="glyphicon glyphicon-plus"></span> &nbsp Add Session
-                  </a>
-                </h4>
-              </div>
-              <div id="collapseFive" class="panel-collapse collapse">
-                <div class="panel-body">
-                      
-                  <button style="width: 100%" id="addSessionButton" class="btn btn-warning btn-lg" data-toggle="modal" data-target="#addSession">
-                        Add a Session
+                <button style="width: 100%" id="addSessionButton" class="btn btn-warning btn-lg" data-toggle="modal" data-target="#addSession">
+                        <span class="glyphicon glyphicon-plus"></span> &nbsp Add a Session
                       </button>
                       
                       <!-- Modal -->
@@ -355,9 +310,6 @@
                           </div><!-- /.modal-content -->
                         </div><!-- /.modal-dialog -->
                       </div><!-- /.modal -->
-                    
-                </div>
-              </div>
             </div>
     
     <!-- Add Session End----------------------------------------------------------------------------------------------d -->
@@ -367,19 +319,10 @@
     <!-- Delete Session Start----------------------------------------------------------------------------------------------d -->
     
     <div class="panel panel-success">
-              <div class="panel-heading">
-                <h4 class="panel-title">
-                  <a data-toggle="collapse" data-parent="#accordion" href="#collapseDeleteSession">
-                    <span class="glyphicon glyphicon-trash"></span> &nbsp Delete Sessions 
-                  </a>
-                </h4>
-              </div>
-              <div id="collapseDeleteSession" class="panel-collapse collapse">
-                <div class="panel-body">
-                    
-                    
-                </div>
-              </div>
+        <button style="width: 100%" id="deleteSessionButton" class="btn btn-warning btn-lg" data-toggle="modal" data-target="#addSession">
+                        <span class="glyphicon glyphicon-minus"></span> &nbsp Delete Sessions 
+                      </button>
+        
             </div>
     
     <!-- Delete Session End----------------------------------------------------------------------------------------------d -->
@@ -390,18 +333,8 @@
     <!-- Add Location Start-------------------------------------------------------------->
             
             <div class="panel panel-success">
-              <div class="panel-heading">
-                <h4 class="panel-title">
-                  <a data-toggle="collapse" data-parent="#accordion" href="#collapseSix">
-                    <span class="glyphicon glyphicon-plus"></span> &nbsp Add Location
-                  </a>
-                </h4>
-              </div>
-              <div id="collapseSix" class="panel-collapse collapse">
-                <div class="panel-body">
-                      
-                  <button style="width: 100%" id="addSessionButton" class="btn btn-warning btn-lg" data-toggle="modal" data-target="#addLocation">
-                        Add a Location
+                <button style="width: 100%" id="addSessionButton" class="btn btn-warning btn-lg" data-toggle="modal" data-target="#addLocation">
+                        <span class="glyphicon glyphicon-plus"></span> &nbsp Add a Location
                       </button>
                       
                       <!-- Modal -->
@@ -439,9 +372,7 @@
                           </div><!-- /.modal-content -->
                         </div><!-- /.modal-dialog -->
                       </div><!-- /.modal -->
-                    
-                </div>
-              </div>
+                
             </div>
     
     
@@ -455,7 +386,7 @@
     
     
     
-    <div id="rightpane" style="width:100px; float: left;padding: 10px; background-color: #fff">
+    <div id="rightpane" style="width:70%; float: left;padding: 10px; background-color: #fff">
        <div id="myhours">
         <table class="table table-bordered table-striped" style="width:600px">
         <th>Class Name</th>
