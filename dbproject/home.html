@@ -17,6 +17,11 @@
 	    //$('#myhours').html(data);
             $userArray = data.split(",");
             
+            if ($userArray[0]=="") {
+                alert("You need to log in to view this page!");
+                window.location.replace("index  ");
+            }
+            
 	    $("#loggedInUserID").html($userArray[0]);
             $("#loggedInUserName").html($userArray[1]);
 	    },
