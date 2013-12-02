@@ -20,6 +20,21 @@ $(document).ready(function(){
     });
   });
   
+  
+  //ADD SESSIONS Locations-------------------------------------------------------
+  
+  $("#addSessionButton").click(function(){
+    $.ajax({
+	    url: 'sessionlocations.php', 
+	    data: {},
+	    success: function(data){
+	    $('#sessionLocations').html(data);	
+	    }
+    });
+  });
+  
+  //-------------------------------------------------------------------
+  
   $(document).on("change", "#questionClass", function(){
 
     $.ajax({

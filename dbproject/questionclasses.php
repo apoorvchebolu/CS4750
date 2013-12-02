@@ -23,7 +23,6 @@ while($row = mysqli_fetch_array($result))
    echo" <option>" . $row['department_id'] . " " . $row['course_number'] . " " . $row['class_name'] . "</option>";
   }
 echo "</select>";
-echo "<br>";
   
 
 $db_connection->close();

@@ -25,8 +25,6 @@
   }
   
   $sessionTimes = explode("-", $sessioninfo);
-  echo $sessionTimes[0];
-  echo $sessionTimes[1];
 
   $result = mysqli_query($db_connection,"SELECT * FROM sessions WHERE class_id = '" . $classid . "' AND start_time = '" . $sessionTimes[0] . "' AND end_time ='" . $sessionTimes[1] . "'");
 
@@ -34,20 +32,7 @@
   {
     $sessionid = $row['session_id'];
   }
-    echo $subject;
-    echo " ";
-    echo $questionbody;
-    echo " ";
-    echo $userid;
-    echo " ";
-    echo $sessioninfo;
-    echo $classinfo;
-    echo " ";
-    echo $sessioninfo;
-    echo " ";
-    echo $classid;
-    echo " ";
-    echo $sessionid;
+    
 
    $result = mysqli_query($db_connection,"INSERT INTO questions VALUES ('', '$userid', '$subject', '$questionbody')");
    
@@ -57,9 +42,6 @@
   {
     $questionid = $row['question_id'];
   }
-  
-  echo " ";
-  echo $questionid;
   
      $result = mysqli_query($db_connection,"INSERT INTO asks VALUES ('$questionid', '$sessionid')");
 
