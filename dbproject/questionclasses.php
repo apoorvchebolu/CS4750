@@ -11,7 +11,10 @@ session_start();
 		return null;
 	}
 
-    $result = mysqli_query($db_connection,"SELECT * FROM classes");
+	
+	
+	$user_id=$_SESSION['user_id'];
+    $result = mysqli_query($db_connection,"SELECT * FROM classes INNER JOIN takes ON classes.class_id = takes.class_id WHERE user_id = '$user_id'");
 
 echo "<select class='form-control' id='questionClass' name='questionClass'>";
 echo "<option>Select Class to ask question about</option>";
