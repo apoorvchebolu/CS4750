@@ -19,7 +19,15 @@
             
             if ($userArray[0]=="") {
                 alert("You need to log in to view this page!");
-                window.location.replace("index  ");
+                window.location.replace("index");
+            }
+            
+            //alert("user type: " + "test");
+            //alert("user type: " + $userArray);
+            
+            if ($userArray[2]=="Professor") {
+                alert("You don't have permission to view this page!");
+                window.location.replace("teacherhome");
             }
             
 	    $("#loggedInUserID").html($userArray[0]);

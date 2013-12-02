@@ -24,6 +24,12 @@
                 window.location.replace("index  ");
                 
             }
+            //alert("user type".$userArray[2]);
+            
+            if ($userArray[2]=="Student") {
+                alert("You don't have permission to view this page!");
+                window.location.replace("home");
+            }
             
             
 	    $("#loggedInUserID").html($userArray[0]);
