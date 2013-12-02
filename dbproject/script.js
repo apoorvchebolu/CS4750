@@ -1,5 +1,6 @@
 $(document).ready(function(){
     
+    //Adds session for Professor
   $("#addSessionButton").click(function(){
     $.ajax({
 	    url: 'sessionmyclasses.php', 
@@ -10,9 +11,10 @@ $(document).ready(function(){
     });
   });
   
+  // Shows modal for asking a question for Student
   $("#questionModal").click(function(){
     $.ajax({
-	    url: 'questionclasses.php', 
+	    url: 'questionclassesStudent.php', 
 	    data: {},
 	    success: function(data){
 	    $('#questionSelects').html(data);	
@@ -39,7 +41,6 @@ $(document).ready(function(){
   
   
   //ADD SESSIONS Locations-------------------------------------------------------
-  
   $("#addSessionButton").click(function(){
     $.ajax({
 	    url: 'sessionlocations.php', 
@@ -52,20 +53,20 @@ $(document).ready(function(){
   
   //-------------------------------------------------------------------
   
+  //Adds session in question modal for Student
   $(document).on("change", "#questionClass", function(){
 
     $.ajax({
 	    type: 'POST',
-	    url: 'questionsession.php', 
+	    url: 'questionsessionStudent.php', 
 	    data: {questionClass: $('#questionClass').val()},
 	    success: function(data){
 	    $('#questionSession').html(data);	
 	    }
     });
   });
-
-
   
+  // Searchs classes for Professor
   $( "#search" ).keyup(function() {
 			
 			$.ajax({
@@ -77,82 +78,97 @@ $(document).ready(function(){
 			});
 		});
   
-  $( "#update" ).keyup(function() {
+  // Searchs key up for Student
+  $( "#searchStudent" ).keyup(function() {
 			
 			$.ajax({
-				url: 'updatesearch.php', 
-				data: {id: $('#update').val()},
+				url: 'searchclassesStudent.php', 
+				data: {classname: $('#searchStudent').val()},
 				success: function(data){
-					$('#updateresults').html(data);	
+					$('#myhours').html(data);	
 				}
 			});
 		});
   
-    $("#password").keypress(function(e){
-	    
-       if(e.which==13){
-	    $.ajax({
-	    type: 'POST',
-	    url: 'login.php', 
-	    data: {user_id: $('#user_id').val(), password: $('#password').val()},
-	    success: function(data){
-			if (data==="home.html" || data==="teacherhome.html") {
-				    window.location.replace(data);
-			} else {
-			     $('#loginError').html(data);
-			}
-			
-			//if (data.charAt(0)=="<") {
-			//  $('#loginError').html(data);
-			//} else{
-			//  var array = data.split(",");
-			//  window.location.assign(array[0]);
-			//  alert(array[1]);
-			//  
-			//  $(window).on( "load",function(){
-			//      alert("loaded");
-			//  });
-			//  
-			//  //$(document).on(null, null, array[1], function(){
-			//  //  alert("hi");
-			//  //  $("#loggedInUserID").html(array[1]);
-			//  //});
-			//  
-			//}
-			
-	    }
-    });
-       }
-    });
-  
-    $("#loginbutton").click(function(){
-	    //alert ("test");
-    $.ajax({
-	    type: 'POST',
-	    url: 'login.php', 
-	    data: {user_id: $('#user_id').val(), password: $('#password').val()},
-	    success: function(data){
-			if (data==="home.html"|| data==="teacherhome.html") {
-				    window.location.replace(data);
-			} else {
-			     $('#loginError').html(data);
-			}
-			
-	    }
-    });
+//  // 
+//  $( "#update" ).keyup(function() {
+//			
+//			$.ajax({
+//				url: 'updatesearch.php', 
+//				data: {id: $('#update').val()},
+//				success: function(data){
+//					$('#updateresults').html(data);	
+//				}
+//			});
+//		});
+
+  // Checks if password is accurate
+  $("#password").keypress(function(e){
+	  
+     if(e.which==13){
+	  $.ajax({
+	  type: 'POST',
+	  url: 'login.php', 
+	  data: {user_id: $('#user_id').val(), password: $('#password').val()},
+	  success: function(data){
+		      if (data==="home.html" || data==="teacherhome.html") {
+				  window.location.replace(data);
+		      } else {
+			   $('#loginError').html(data);
+		      }
+		      
+		      //if (data.charAt(0)=="<") {
+		      //  $('#loginError').html(data);
+		      //} else{
+		      //  var array = data.split(",");
+		      //  window.location.assign(array[0]);
+		      //  alert(array[1]);
+		      //  
+		      //  $(window).on( "load",function(){
+		      //      alert("loaded");
+		      //  });
+		      //  
+		      //  //$(document).on(null, null, array[1], function(){
+		      //  //  alert("hi");
+		      //  //  $("#loggedInUserID").html(array[1]);
+		      //  //});
+		      //  
+		      //}
+		      
+	  }
   });
+     }
+  });
+
+  //Logins in to Student/Professor
+  $("#loginbutton").click(function(){
+	  //alert ("test");
+  $.ajax({
+	  type: 'POST',
+	  url: 'login.php', 
+	  data: {user_id: $('#user_id').val(), password: $('#password').val()},
+	  success: function(data){
+		      if (data==="home.html"|| data==="teacherhome.html") {
+				  window.location.replace(data);
+		      } else {
+			   $('#loginError').html(data);
+		      }
+		      
+	  }
+  });
+});
     
-// QUESTION --------------------------------------------------------------------------
-    //$("#questionButton").click(function(){
-    $(document).on("click", "#questionButton", function(){
-      alert($('#questionSession').find(":selected").text());
-       $.ajax({
-	    type: 'POST',
-	    url: 'questioninsert.php', 
-	    data: {sessioninfo: $('#questionSession').find(":selected").text(), classinfo: $('#questionClass').val(), questionSubject: $('#questionSubject').val(), questionBody: $('#questionBody').val()},
-	    success: function(data){
-	    alert(data);
-	    },
+  // Asks questions for Student --------------------------------------------------------------------------
+  //$("#questionButton").click(function(){
+  $(document).on("click", "#questionButton", function(){
+    //alert($('#questionSession').find(":selected").text());
+     $.ajax({
+	  type: 'POST',
+	  url: 'questioninsertStudent.php', 
+	  data: {sessioninfo: $('#questionSession').find(":selected").text(), classinfo: $('#questionClass').val(), questionSubject: $('#questionSubject').val(), questionBody: $('#questionBody').val()},
+	  success: function(data){
+	    alert("You've successfully asked a question!");
+	  },
     });
     
     $('#questionSubject').val('');
@@ -178,63 +194,124 @@ $(document).ready(function(){
     
     
     
-    //Apoorv's Methods------------------------------------------------------------
-    
-    $(document).on("click", ".addClass", function(e){
-	   
-	   //alert('Value: '+class_id);
-	   $.ajax({
-		    url: 'addClass.php', 
-		    data: {classID: class_id},
-		    success: function(data){
-			    if (data=="success") {
-			      $(e.target).html("Added!");
-			      $(e.target).attr('class', 'btn btn-success addClass');
-			    } else{
-			      $(e.target).html("Error!");
-			      $(e.target).attr('class', 'btn btn-danger addClass');
-			    }
-		    },
-		    error: function(data){
-			//alert("error")
-		    }
-	    });
-	   
-    });
-    
-    $(document).on("click", ".joinSession", function(e){
+  //Apoorv's Methods------------------------------------------------------------
+  //Adds professors classes to myClasses
+  $(document).on("click", ".addClass", function(e){
+	 
+	 //alert('Value: '+class_id);
+	 $.ajax({
+		  url: 'addClass.php', 
+		  data: {classID: class_id},
+		  success: function(data){
+			  if (data=="success") {
+			    $(e.target).html("Added!");
+			    $(e.target).attr('class', 'btn btn-success addClass');
+			  } /*else{
+			    $(e.target).html("Error!");
+			    $(e.target).attr('class', 'btn btn-danger addClass');
+			  }*/
+		  },
+		  error: function(data){
+		      //alert("error")
+		  }
+	  });
+	 
+  });
+  
+  //Adds students classes to myClasses
+  $(document).on("click", ".addClassStudent", function(e){
+	 
+	 //alert('Value: '+class_id);
+	 $.ajax({
+		  url: 'addClassStudent.php', 
+		  data: {classID: class_id},
+		  success: function(data){
+			  if (data=="success") {
+			    $(e.target).html("Added!");
+			    $(e.target).attr('class', 'btn btn-success addClass');
+			  } /*else{
+			    $(e.target).html("Error!");
+			    $(e.target).attr('class', 'btn btn-danger addClass');
+			  }*/
+		  },
+		  error: function(data){
+		      //alert("error")
+		  }
+	  });
+	 
+  });
+  
+  //Joins session for professor
+  $(document).on("click", ".joinSession", function(e){
+	
+	//alert('Value: '+session_id);
+	$.ajax({
+		 url: 'joinSession.php', 
+		 data: {sessionID: session_id},
+		 success: function(data){
+			  if (data=="success") {
+			    $(e.target).html("Attending!");
+			    $(e.target).attr('class', 'btn btn-success joinSession');
+			  } /*else{
+			    $(e.target).html("Error!");
+			    $(e.target).attr('class', 'btn btn-danger joinSession');
+			  }*/
+			  
+			 //this.html("You've Joined this session!");
+		 },
+		 error: function(data){
+		     //alert("error")
+		 }
+	 });
+	
+  });
+  
+  //Joins session for student
+  $(document).on("click", ".joinSessionStudent", function(e){
+	
+	//alert('Value: '+session_id);
+	$.ajax({
+		 url: 'joinSessionStudent.php', 
+		 data: {sessionID: session_id},
+		 success: function(data){
+			  if (data=="success") {
+			    $(e.target).html("Attending!");
+			    $(e.target).attr('class', 'btn btn-success joinSession');
+			  } else{
+			    $(e.target).html("Error!");
+			    $(e.target).attr('class', 'btn btn-danger joinSession');
+			  }
+			  
+			 //this.html("You've Joined this session!");
+		 },
+		 error: function(data){
+		     //alert("error")
+		 }
+	 });
+	
+  });
+  
+  //Shows myClasses for Professor
+   $("#myClasses").click(function(){
 	  
-	  //alert('Value: '+session_id);
 	  $.ajax({
-		   url: 'joinSession.php', 
-		   data: {sessionID: session_id},
-		   success: function(data){
-			    if (data=="success") {
-			      $(e.target).html("Attending!");
-			      $(e.target).attr('class', 'btn btn-success joinSession');
-			    } else{
-			      $(e.target).html("Error!");
-			      $(e.target).attr('class', 'btn btn-danger joinSession');
-			    }
-			    
-			   //this.html("You've Joined this session!");
-		   },
-		   error: function(data){
-		       //alert("error")
-		   }
-	   });
+		  url: 'myclasses.php', 
+		  success: function(data){
+			  $('#myhours').html(data);        
+		  }
+	  });
+   });
+   
+   //Shows myClasses for Student
+   $("#myClassesStudent").click(function(){
 	  
-    });
-    
-     $("#myClasses").click(function(){
-            
-            $.ajax({
-		    url: 'myclasses.php', 
-		    success: function(data){
-			    $('#myhours').html(data);        
-		    }
-	    });
-     });
+	  $.ajax({
+		  url: 'myclassesStudent.php', 
+		  success: function(data){
+			  $('#myhours').html(data);        
+		  }
+	  });
+   });
      
      //---------------------------------------------------------------------------------
     
