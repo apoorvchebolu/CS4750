@@ -108,7 +108,7 @@ $(document).ready(function(){
      if(e.which==13){
 	  $.ajax({
 	  type: 'POST',
-	  url: 'login.php', 
+	  url: 'loginBasic.php', 
 	  data: {user_id: $('#user_id').val(), password: $('#password').val()},
 	  success: function(data){
 		      if (data==="home.html" || data==="teacherhome.html") {
@@ -145,7 +145,7 @@ $(document).ready(function(){
 	  //alert ("test");
   $.ajax({
 	  type: 'POST',
-	  url: 'login.php', 
+	  url: 'loginBasic.php', 
 	  data: {user_id: $('#user_id').val(), password: $('#password').val()},
 	  success: function(data){
 		      if (data==="home.html"|| data==="teacherhome.html") {
