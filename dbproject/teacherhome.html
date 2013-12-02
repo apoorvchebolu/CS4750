@@ -117,19 +117,26 @@
 
             
             <div class="panel panel-success">
-                <button class="btn btn-warning btn-lg" data-toggle="modal" data-target="#addLocation" style="width: 100%">
+                <button id ="seeQuestions" class="btn btn-warning btn-lg" data-toggle="modal" data-target="#addLocation" style="width: 100%">
                         <span class="glyphicon glyphicon-question-sign"></span> &nbsp View Student Questions
                       </button>
                  <!-- Modal -->
-                      <div class="modal fade" id="addLocation" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                      <div class="modal fade" id="seeQuestions" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
                           <div class="modal-content">
                             <div class="modal-header">
                               <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                               <h4 class="modal-title" id="myModalLabel">Student Questions</h4>
+                              
                                 </div>
                                 <div class="modal-body">
-                                
+                                <table id="tableQuestions" class="table table-bordered table-striped" >
+                                    <th>Subject</th>
+                                    <th>Questions</th>
+                                                                        
+        
+        
+                                         </table>
                                 <!-- RESULTS WOULD GO HERE -->
                                 
                                 </div>
@@ -340,7 +347,7 @@
     <!-- Add Location Start-------------------------------------------------------------->
             
             <div class="panel panel-success">
-                <button style="width: 100%" id="addSessionButton" class="btn btn-warning btn-lg" data-toggle="modal" data-target="#addLocation">
+                <button style="width: 100%" id="addLocationButton" class="btn btn-warning btn-lg" data-toggle="modal" data-target="#addLocation">
                         <span class="glyphicon glyphicon-plus"></span> &nbsp Add a Location
                       </button>
                       
@@ -366,7 +373,7 @@
                                         </div>
                                       </div>
                                      
-                                    <button type="submit" class="btn btn-warning" id="addSession">Add Location</button>
+                                    <button type="submit" class="btn btn-warning" id="addLocation">Add Location</button>
 
 
                                    </form>
