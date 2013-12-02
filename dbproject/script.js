@@ -21,6 +21,23 @@ $(document).ready(function(){
   });
   
   
+  
+  //EXPORT CLASSSES -------------------------------------------------------
+  
+  $("#classExport").click(function(){
+    $.ajax({
+	    url: 'classexport.php', 
+	    data: {},
+	    success: function(data){
+	    $('#sessionLocations').html(data);	
+	    }
+    });
+  });
+  
+  //-------------------------------------------------------------------
+  
+  
+  
   //ADD SESSIONS Locations-------------------------------------------------------
   
   $("#addSessionButton").click(function(){
