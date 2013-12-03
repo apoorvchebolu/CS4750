@@ -3,7 +3,7 @@ $(document).ready(function(){
     //Adds session for Professor
   $("#addSessionButton").click(function(){
     $.ajax({
-	    url: 'sessionmyclasses.php', 
+	    url: 'sessionmyclassesProfessor.php', 
 	    data: {},
 	    success: function(data){
 	    $('#classSelect').html(data);	
@@ -43,7 +43,7 @@ $(document).ready(function(){
   //ADD SESSIONS Locations-------------------------------------------------------
   $("#addSessionButton").click(function(){
     $.ajax({
-	    url: 'sessionlocations.php', 
+	    url: 'sessionlocationsProfessor.php', 
 	    data: {},
 	    success: function(data){
 	    $('#sessionLocations').html(data);	
@@ -70,7 +70,7 @@ $(document).ready(function(){
   $( "#search" ).keyup(function() {
 			
 			$.ajax({
-				url: 'searchclasses.php', 
+				url: 'searchclassesProfessor.php', 
 				data: {classname: $('#search').val()},
 				success: function(data){
 					$('#myhours').html(data);	
@@ -200,7 +200,7 @@ $(document).ready(function(){
 	 
 	 //alert('Value: '+class_id);
 	 $.ajax({
-		  url: 'addClass.php', 
+		  url: 'addClassProfessor.php', 
 		  data: {classID: class_id},
 		  success: function(data){
 			  if (data=="success") {
@@ -246,7 +246,7 @@ $(document).ready(function(){
 	
 	//alert('Value: '+session_id);
 	$.ajax({
-		 url: 'joinSession.php', 
+		 url: 'joinSessionProfessor.php', 
 		 data: {sessionID: session_id},
 		 success: function(data){
 			  if (data=="success") {
@@ -277,10 +277,10 @@ $(document).ready(function(){
 			  if (data=="success") {
 			    $(e.target).html("Attending!");
 			    $(e.target).attr('class', 'btn btn-success joinSession');
-			  } else{
+			  } /*else{
 			    $(e.target).html("Error!");
 			    $(e.target).attr('class', 'btn btn-danger joinSession');
-			  }
+			  }*/
 			  
 			 //this.html("You've Joined this session!");
 		 },
@@ -292,12 +292,13 @@ $(document).ready(function(){
   });
   
   //Shows myClasses for Professor
-   $("#myClasses").click(function(){
+   $("#myClassesProfessor").click(function(){
 	  
 	  $.ajax({
-		  url: 'myclasses.php', 
+		  url: 'myclassesProfessor.php', 
 		  success: function(data){
-			  $('#myhours').html(data);        
+			  $('#myhours').html(data);
+			  
 		  }
 	  });
    });

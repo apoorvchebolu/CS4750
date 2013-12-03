@@ -9,6 +9,7 @@
     }
         
     $user_id=$_SESSION['user_id'];
+    //echo "user_id: " . $user_id;
     //$user_id='apc5fr';
 
     //echo "user: $user_id<br>";

@@ -11,7 +11,7 @@
     <script type="text/javascript" src="script.js"></script>
     <script type="text/javascript">
         $.ajax({
-	    url: 'myuser.php', 
+	    url: 'myuserBasic.php', 
 	    data: {},
 	    success: function(data){
 	    //$('#myhours').html(data);
@@ -34,7 +34,7 @@
             $("#loggedInUserName").html($userArray[1]);
 	    },
 	    error: function(data){
-	      alert("error");
+	      alert("Couldn't find user");
 	    }
         }); 
     </script>
