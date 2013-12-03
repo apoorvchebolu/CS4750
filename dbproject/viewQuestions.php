@@ -14,7 +14,11 @@ session_start();
 	
 	
     $user_id=$_SESSION['user_id'];
-    $result = mysqli_query($db_connection,"SELECT * FROM questions");
+    $result = mysqli_query($db_connection,"SELECT `subject`, `question_text` 
+			FROM `questions`
+			JOIN asks ON questions.question_id= asks.question_id
+			JOIN sessions ON asks.session_id = sessions.session_id
+			WHERE sessions.user_id= '$user_id'");
 
 
 while($row = mysqli_fetch_array($result))
