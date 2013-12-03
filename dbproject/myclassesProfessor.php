@@ -1,5 +1,5 @@
 <?php
-    include_once('dblogin.php');
+    include_once('dbloginProfessor.php');
     session_start();
     $db_connection = new mysqli($SERVER, $USER, $PASS, $DB);
     if (mysqli_connect_error()) {
@@ -9,6 +9,7 @@
     }
         
     $user_id=$_SESSION['user_id'];
+    //echo "user_id: " . $user_id;
     //$user_id='apc5fr';
 
     //echo "user: $user_id<br>";

@@ -13,7 +13,7 @@
     <script type="text/javascript" src="jquery.timepicker.js"></script>
     <script type="text/javascript">
         $.ajax({
-	    url: 'myuser.php', 
+	    url: 'myuserBasic.php', 
 	    data: {},
 	    success: function(data){
 	    //$('#myhours').html(data);
@@ -21,7 +21,7 @@
             
             if ($userArray[0]=="") {
                 alert("You need to log in to view this page!");
-                window.location.replace("index  ");
+                window.location.replace("index");
                 
             }
             //alert("user type".$userArray[2]);
@@ -36,7 +36,7 @@
             $("#loggedInUserName").html($userArray[1]);
 	    },
 	    error: function(data){
-	      alert("error");
+	      alert("Couldn't find user");
 	    }
         }); 
     </script>
@@ -110,7 +110,7 @@
 
             
             <div class="panel panel-success">
-                <button id="myClasses" style="width: 100%" class="btn btn-warning btn-lg">
+                <button id="myClassesProfessor" style="width: 100%" class="btn btn-warning btn-lg">
                     <span class="glyphicon glyphicon-book"></span> &nbsp My Classes
                 </button>
             </div>
@@ -171,7 +171,7 @@
                             <div class="modal-body">
                               <div class="well">
                                  <h3>Add New Class:</h3>
-                                    <form class="form-horizontal" role="form" action="createClass.php" method="post">
+                                    <form class="form-horizontal" role="form" action="createClassProfessor.php" method="post">
                                       
                                       <div class="form-group">
                                         <label class="col-sm-3 control-label">Department Name</label>
@@ -271,7 +271,7 @@
                              
                              <div class="well">
                              <h3>Add a Session:</h3>
-                                <form class="form-horizontal" action="sessioninsert.php" method="post" role="form">
+                                <form class="form-horizontal" action="sessioninsertProfessor.php" method="post" role="form">
                                   
                                   <div class="form-group">
                                     <label class="col-sm-3 control-label">Class</label>

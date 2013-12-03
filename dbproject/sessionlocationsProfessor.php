@@ -1,6 +1,6 @@
 <?php
 
-include_once('dblogin.php');
+include_once('dbloginProfessor.php');
 
 session_start();
 	
