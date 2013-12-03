@@ -1,6 +1,6 @@
 <?
 
-	include_once('dblogin.php');
+	include_once('dbloginProfessor.php');
 	
        session_start();
         
@@ -15,7 +15,7 @@
     $startTime = mysqli_real_escape_string($db_connection ,$startTime);
     //echo $startTime;
     
-    $result = mysqli_query($db_connection,"INSERT INTO `cs4750apc5fr`.`locations`( `location_name`, `frequency`) VALUES ('$startTime',1)");
+    $result = mysqli_query($db_connection,"INSERT INTO `cs4750apc5fr`.`locations`( `location_name`) VALUES ('$startTime')");
     header('Location: teacherhome.html');
     
 
