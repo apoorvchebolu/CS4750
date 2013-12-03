@@ -13,11 +13,11 @@
 
 	
     $username = $_POST['user_id'];
-   // $username = mysqli_real_escape_string($db_connection ,$username);
+    $username = mysqli_real_escape_string($db_connection ,$username);
     $password = $_POST['password'];
    // echo $password;
    // echo ".............";
-  //  $password = mysqli_real_escape_string($db_connection ,$password);
+    $password = mysqli_real_escape_string($db_connection ,$password);
     $password = hash('md5', $password);
   //  echo $password;
 //
