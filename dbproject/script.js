@@ -23,6 +23,18 @@ $(document).ready(function(){
   });
   
   
+  // Shows modal for viewing questions for Professor
+  $("#viewQuestionsButton").click(function(){
+    $.ajax({
+	    url: 'viewQuestions.php', 
+	    data: {},
+	    success: function(data){
+	    $('#viewQuestions').html(data);	
+	    }
+    });
+  });
+  
+  
   
   //EXPORT CLASSSES -------------------------------------------------------
   

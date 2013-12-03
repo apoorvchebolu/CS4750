@@ -123,11 +123,11 @@
 
             
             <div class="panel panel-success">
-                <button class="btn btn-warning btn-lg" data-toggle="modal" data-target="#addLocation" style="width: 100%">
+                <button id="viewQuestionsButton" class="btn btn-warning btn-lg" data-toggle="modal" data-target="#viewQuestion" style="width: 100%">
                         <span class="glyphicon glyphicon-question-sign"></span> &nbsp View Student Questions
                       </button>
                  <!-- Modal -->
-                      <div class="modal fade" id="addLocation" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                      <div class="modal fade" id="viewQuestion" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
                           <div class="modal-content">
                             <div class="modal-header">
@@ -135,7 +135,7 @@
                               <h4 class="modal-title" id="myModalLabel">Student Questions</h4>
                                 </div>
                                 <div class="modal-body">
-                                
+                                <div id="viewQuestions"></div>
                                 <!-- RESULTS WOULD GO HERE -->
                                 
                                 </div>
@@ -313,7 +313,7 @@
                                    <div class="form-group">
                                     <div class="col-sm-offset-2 col-sm-10">
                                       <button type="submit" class="btn btn-info" id="addSession">Add Session</button>
-                                      <a type="submit" class="btn btn-default" href="home">Cancel</a>
+                                      <a type="submit" class="btn btn-default" data-dismiss="modal">Cancel</a>
                                     </div>
                                   </div> 
                                 
@@ -334,19 +334,6 @@
     
     <!-- Add Session End----------------------------------------------------------------------------------------------d -->
 
-    
-    
-    <!-- Delete Session Start----------------------------------------------------------------------------------------------d -->
-    
-    <div class="panel panel-success">
-        <button style="width: 100%" id="deleteSessionButton" class="btn btn-warning btn-lg" data-toggle="modal" data-target="#addSession">
-                        <span class="glyphicon glyphicon-minus"></span> &nbsp Delete Sessions 
-                      </button>
-        
-            </div>
-    
-    <!-- Delete Session End----------------------------------------------------------------------------------------------d -->
-  
     
     
     
