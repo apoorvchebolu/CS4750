@@ -10,8 +10,11 @@ session_start();
 		echo "<br>" . mysqli_connect_error();
 		return null;
 	}
+	$username=$_SESSION['user_id'];
 
-    $result = mysqli_query($db_connection,"SELECT * FROM classes");
+    $result = mysqli_query($db_connection,"SELECT * FROM classes
+			INNER JOIN takes ON takes.class_id=classes.class_id
+			WHERE 	takes.user_id='$username'");
 
 echo "<select class='form-control' id='sessionClass' name='sessionClass'>";
 
