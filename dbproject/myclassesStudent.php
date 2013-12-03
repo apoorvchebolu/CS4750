@@ -21,8 +21,12 @@
     //echo "size: " . mysqli_num_rows($result);
     if(mysqli_num_rows($result)>0){
     
-    $sessionQuery = "CREATE OR REPLACE VIEW mySessions AS SELECT sessions.user_id, myClassView.class_id, session_id, start_time, end_time, date
+    $sessionQuery = "CREATE OR REPLACE VIEW mySessions AS SELECT users.name_last, myClassView.class_id, sessions.session_id, start_time, end_time, date,
+                                  locations.location_name
 				  FROM myClassView INNER JOIN sessions ON myClassView.class_id=sessions.class_id
+                                  INNER JOIN users ON sessions.user_id = users.user_id
+                                  INNER JOIN hostedAt ON sessions.session_id = hostedAt.session_id
+                                  INNER JOIN locations ON hostedAt.location_id = locations.location_id
 				  ORDER BY class_id asc";
     
     mysqli_query($db_connection,$sessionQuery);
@@ -59,18 +63,19 @@
 	    if($row['class_id']==$row2['class_id']){
 		if($count==0){
 		    echo "<table class='table table-bordered table-striped'>";
-		    echo "<th>Professor ID</th>";
+		    echo "<th>Professor</th>";
 		    //echo "<th>Class ID</th>";
 		    //echo "<th>Session ID</th>";
 		    echo "<th>Start Time</th>";
 		    echo "<th>End Time</th>";
 		    echo "<th>Days of the Week</th>";
+                    echo "<th>Location</th>";
 		    echo "<th></th>";
 		}
 		echo "<tr>";
 		//session_id, start_time, end_time, date
 		echo "<td>";
-		echo  $row2['user_id'];
+		echo  $row2['name_last'];
 		echo "</td>";
 		//echo "<td>";
 		//echo  $row2['class_id'];
@@ -86,6 +91,9 @@
 		echo "</td>";
 		echo "<td>";
 		echo  $row2['date'];
+		echo "</td>";
+                echo "<td>";
+		echo  $row2['location_name'];
 		echo "</td>";
 		
 		$joinedQuery = "SELECT * FROM attends WHERE user_id='$user_id' AND session_id=" . $row2['session_id'];
@@ -108,74 +116,7 @@
 	  mysqli_data_seek($sessionResult,0);
 	  echo "</table>";
       
-      
-//	  echo "<tr>";
-//	  echo "<td>";
-//	  echo  $row['user_id'];
-//	  echo "</td>";
-//	  echo "<td>";
-//	  echo  $row['class_id'];
-//	  echo "</td>";
-//	  echo "<td>";
-//	  echo  $row['department_name'];
-//	  echo "</td>";
-//	  echo "<td>";
-//	  echo  $row['department_id'];
-//	  echo "</td>";
-//          echo "<td>";
-//	  echo  $row['course_number'];
-//	  echo "</td>";
-//          echo "<td>";
-//	  echo  $row['class_name'];
-//	  echo "</td>";
-//          echo "<td>";
-//	  echo  $row['semester'];
-//	  echo "</td>";
-      
-      //echo "<td><button id='addClassID' class='btn btn-info addClass'>Add</button></td>";
-      //echo"<script> alert('". $row['name_first'] . "')</script>";
-      //echo "</tr>";
       }
-	//echo "</table>";
-	
-	
-//	echo "Sessions table";
-//	echo "<table class='table table-bordered table-striped'>";
-//	echo "<th>Professor ID</th>";
-//	echo "<th>Class ID</th>";
-//	echo "<th>Session ID</th>";
-//        echo "<th>Start Time</th>";
-//	echo "<th>End Time</th>";
-//	echo "<th>Date</th>";
-//	
-//	while($row = mysqli_fetch_array($sessionResult))
-//	  {
-//	    echo "<tr>";
-//	    session_id, start_time, end_time, date
-//	    echo "<td>";
-//	    echo  $row['user_id'];
-//	    echo "</td>";
-//	    echo "<td>";
-//	    echo  $row['class_id'];
-//	    echo "</td>";
-//	    echo "<td>";
-//	    echo  $row['session_id'];
-//	    echo "</td>";
-//	    
-//	    
-//	    echo "<td>";
-//	    echo  $row['start_time'];
-//	    echo "</td>";
-//	    echo "<td>";
-//	    echo  $row['end_time'];
-//	    echo "</td>";
-//	    echo "<td>";
-//	    echo  $row['date'];
-//	    echo "</td>";
-//	    
-//	    echo "</tr>";
-//	  }
-//	  echo "</table>";
     echo "</div>";
     } else{
         echo "You have not enrolled in any classes!";
