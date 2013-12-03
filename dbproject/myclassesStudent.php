@@ -18,7 +18,8 @@
     
     mysqli_query($db_connection,$viewQuery);
     $result = mysqli_query($db_connection,"Select * FROM myClassView");
-    //echo "myClasses";
+    //echo "size: " . mysqli_num_rows($result);
+    if(mysqli_num_rows($result)>0){
     
     $sessionQuery = "CREATE OR REPLACE VIEW mySessions AS SELECT sessions.user_id, myClassView.class_id, session_id, start_time, end_time, date
 				  FROM myClassView INNER JOIN sessions ON myClassView.class_id=sessions.class_id
@@ -176,5 +177,9 @@
 //	  }
 //	  echo "</table>";
     echo "</div>";
+    } else{
+        echo "You have not enrolled in any classes!";
+    }
+    
     $db_connection->close();
 ?>
